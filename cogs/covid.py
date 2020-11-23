@@ -20,7 +20,7 @@ class Covid(commands.Cog):
         death, rec = self.data[0]['death'], self.data[0]['recovered']
 
         costats = discord.Embed(title='Covid-19 Stats (US)')
-        costats.set_thumbnail(url='https://www.lse.ac.uk/philosophy/wp-content/uploads/2020/06/sars-cov-2.png')
+        costats.set_thumbnail(url='https://github.com/Bakon-Bots/CoStats/blob/main/covidpic.png')
         costats.add_field(name='Positive Cases', value=pos)
         costats.add_field(name='Negative Cases', value=neg)
         costats.add_field(name='Deaths', value=death)
@@ -40,7 +40,7 @@ class Covid(commands.Cog):
         death, rec = data['death'], data['recovered']
 
         costats = discord.Embed(title=f'Covid-19 Stats ({state.capitalize()})')
-        costats.set_thumbnail(url='https://phil.cdc.gov//PHIL_Images/23311/23311_lores.jpg')
+        costats.set_thumbnail(url='https://github.com/Bakon-Bots/CoStats/blob/main/covidpic.png')
         costats.add_field(name='Positive Cases', value=pos)
         costats.add_field(name='Negative Cases', value=neg)
         costats.add_field(name='Deaths', value=death)
