@@ -8,7 +8,6 @@ client = commands.Bot(
     description='Current Covid Stats.',
     case_insensitive=True,
 )
-client.remove_command('help')
 
 
 STATES = {
@@ -64,19 +63,77 @@ STATES = {
     'Wisconsin':'WI',
     'Wyoming':'WY'
 }
+STATESABB = {
+    'AL':'Alabama',
+    'AK':'Alaska',
+    'AZ':'Arizona',
+    'AR':'Arkansas',
+    'CA':'California',
+    'CO':'Colorado',
+    'CT':'Connecticut',
+    'DE':'Delaware',
+    'DC':'District of Columbia',
+    'FL':'Florida',
+    'GA':'Georgia',
+    'HI':'Hawaii',
+    'ID':'Idaho',
+    'IL':'Illinois',
+    'IN':'Indiana',
+    'IA':'Iowa',
+    'KS':'Kansas',
+    'KY':'Kentucky',
+    'LA':'Louisiana',
+    'ME':'Maine',
+    'MD':'Maryland',
+    'MA':'Massachusetts',
+    'MI':'Michigan',
+    'MN':'Minnesota',
+    'MS':'Mississippi',
+    'MO':'Missouri',
+    'MT':'Montana',
+    'NE':'Nebraska',
+    'NV':'Nevada',
+    'NH':'New Hampshire',
+    'NJ':'New Jersey',
+    'NM':'New Mexico',
+    'NY':'New York',
+    'NC':'North Carolina',
+    'ND':'North Dakota',
+    'OH':'Ohio',
+    'OK':'Oklahoma',
+    'OR':'Oregon',
+    'PA':'Pennsylvania',
+    'RI':'Rhode Island',
+    'SC':'South Carolina',
+    'SD':'South Dakota',
+    'TN':'Tennessee',
+    'TX':'Texas',
+    'UT':'Utah',
+    'VT':'Vermont',
+    'VA':'Virginia',
+    'WA':'Washington',
+    'WV':'West Virginia',
+    'WI':'Wisconsin',
+    'WY':'Wyoming',
+}
 
 
 def get_abb(state):
     if state.capitalize() in STATES.keys():
-        return STATES[state.capitalize()]
+        # Gets and returns the postal code
+        return STATES.get(state.capitalize()), state
+    elif state.upper() in STATESABB.keys():
+        # Gets and Returns the postal code and the state with it.
+        return state.lower(), STATESABB.get(state.upper())
 
 
 @client.event
 async def on_ready():
     print('CoStats Ready!')
 
+
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
-client.run(os.environ["TOKEN"])
+client.run('NzgwNTE3NzEyMDg2MDQwNTg3.X7wPww.EualuFoFYkGcsn5q1ja6Rg-P_Gk')#os.environ["TOKEN"])
